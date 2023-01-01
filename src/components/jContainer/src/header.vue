@@ -4,7 +4,7 @@
       <div class="header-container">
         <div class="logo-container">LOGO</div>
         <div class="content">
-          <el-menu router :default-active="activeIndex" class="el-menu-demo" mode="horizontal" :ellipsis="false" @select="handleSelect">
+          <el-menu router default-active="/" class="el-menu-demo" mode="horizontal" :ellipsis="false" @select="handleSelect">
             <div class="flex-grow" />
             <el-menu-item index="/">首页</el-menu-item>
             <el-menu-item index="/xuexi">学习</el-menu-item>
@@ -26,9 +26,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-
-const activeIndex = ref('1')
 const handleSelect = (key: string, keyPath: string[]) => {
   console.log(key, keyPath)
 }

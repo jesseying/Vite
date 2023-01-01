@@ -23,13 +23,8 @@ import { ElMessage } from 'element-plus'
 import { loading } from '@/utils/loading'
 
 const [tableData, tableLoading] = [ref([]), ref(true)]
-const getTableData = async () => {
-  const config = {
-    params: {
-      id: 1
-    }
-  }
-  getCategories(config).then((res) => {
+const getTableData = () => {
+  getCategories().then((res) => {
     if (res.code === 200) {
       tableData.value = res.data
       ElMessage.success(res.message)
@@ -38,12 +33,6 @@ const getTableData = async () => {
       ElMessage.error(res.message)
     }
   })
-  // res = await getCategories()
-  // return {
-  //   code: res.code,
-  //   data: res.data,
-  //   message: res.message
-  // }
 }
 onMounted(() => {
   getTableData()
